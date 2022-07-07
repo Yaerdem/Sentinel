@@ -30,59 +30,50 @@ here:*](https://docs.microsoft.com/azure/automation/automation-windows-hrw-insta
 
 ![Graphical user interface, text, application, chat or text message
 Description automatically
-generated](./media/image1.png){width="2.5235804899387575in"
-height="1.3109514435695537in"}
+generated](./media/image1.png)
 
 ![Graphical user interface, application Description automatically
-generated](./media/image2.png){width="3.919403980752406in"
-height="2.309834864391951in"}
+generated](./media/image2.png)
 
 Deploy the Automation Hybrid Worker solution from the Azure Market place
 
 ![Graphical user interface, application Description automatically
-generated](./media/image3.png){width="4.344724409448819in"
-height="3.0813145231846018in"}
+generated](./media/image3.png)
 
 Go to Automation Account menu, create a Hybrid Worker Group
 
 ![Graphical user interface, text, application, email Description
 automatically
-generated](./media/image4.png){width="3.8222222222222224in"
-height="3.1015179352580926in"}
+generated](./media/image4.png)
 
 In the Basics menu, I'm adding credentials (it will be used to gather
 privileged users from AD, since all users can read domain users
 properties, standard domain user is enough.)
 
 ![Graphical user interface Description automatically generated with
-medium confidence](./media/image5.png){width="6.471983814523185in"
-height="1.704798775153106in"}
+medium confidence](./media/image5.png)
 
 In the Hybrid Workers menu, I'll pick one of the windows servers which
 is already reporting to Sentinel enabled Log analytics workspace.
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image6.png){width="4.461641513560805in"
-height="1.2673140857392826in"}
+generated](./media/image6.png)
 
 This server will be the responsible to gather privileged users from AD.
 To do this operation, first of all, you need to connect this server via
 RDP, then run the following powershell cmdlet to run AD related cmdlets.
 
 ![Text Description automatically
-generated](./media/image7.png){width="6.5in"
-height="1.0368055555555555in"}
+generated](./media/image7.png)
 
 To create a new PowerShell Runbook navigate to your Automation Account
 and select the Runbooks blade. Then create a runbook,
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image8.png){width="3.281129702537183in"
-height="1.9443733595800525in"}
+generated](./media/image8.png)
 
 ![Graphical user interface Description automatically
-generated](./media/image9.png){width="3.501784776902887in"
-height="1.8238462379702538in"}
+generated](./media/image9.png)
 
 Select PowerShell from the Runbook type menu and paste the script below
 in the resulting window. Click save then publish to activate the
@@ -93,16 +84,14 @@ Import-Module ActiveDirectory
 Get-ADUser -Filter \"admincount -eq \'1\'\" -properties sid, cn \| select sid, cn \| convertto-json
 
 ![Text Description automatically generated with medium
-confidence](./media/image10.png){width="6.5in"
-height="1.0784722222222223in"}
+confidence](./media/image10.png)
 
 **Test Runbook**
 
 You can test your runbook to check everything is working properly,
 
 ![Text Description automatically generated with low
-confidence](./media/image11.png){width="6.482400481189852in"
-height="1.7221587926509185in"}
+confidence](./media/image11.png)
 
 When task completes, you should see all your privileged accounts in the
 output. As you see in the script, you can change the script according to
@@ -110,8 +99,7 @@ your need, e.g just to gather domain admins, or custom groups (SAP
 users, VIP users, HR users\...)
 
 ![Graphical user interface, text Description automatically
-generated](./media/image12.png){width="4.538601268591426in"
-height="2.1932250656167978in"}
+generated](./media/image12.png)
 
 **Logic Apps Deployment**
 
@@ -124,27 +112,23 @@ Yaerdem/Sentinel
 Go to Azure Portal and search for template
 
 ![Graphical user interface Description automatically
-generated](./media/image13.png){width="4.843571741032371in"
-height="1.1110706474190726in"}
+generated](./media/image13.png)
 
 ![Graphical user interface, text, application, email Description
 automatically
-generated](./media/image14.png){width="2.7811472003499564in"
-height="2.239501312335958in"}
+generated](./media/image14.png)
 
 Load Watchlist-Add-OnPremADPrivUsersToWatchList.json file which you
 downloaded from Github.
 
 ![Graphical user interface, application Description automatically
-generated](./media/image15.png){width="3.6343318022747155in"
-height="1.568439413823272in"}
+generated](./media/image15.png)
 
 Fill the parameters according to your Azure environment:
 
 ![Graphical user interface, text, application, email Description
 automatically
-generated](./media/image16.png){width="2.645736001749781in"
-height="2.8644783464566927in"}
+generated](./media/image16.png)
 
 **Resource Group**: Name of the Resource group you want to deploy this
 logic app
@@ -180,39 +164,32 @@ After creation, you should see deployment is complete.
 
 ![Graphical user interface, text, application, Teams Description
 automatically
-generated](./media/image17.png){width="2.631848206474191in"
-height="1.4964730971128608in"}
+generated](./media/image17.png)
 
 Fix all the connections based on your Azure environment, shown below.
 
 ![Graphical user interface, application Description automatically
-generated](./media/image18.png){width="4.468585958005249in"
-height="2.8540616797900262in"}
+generated](./media/image18.png)
 
 ![Graphical user interface, application Description automatically
-generated](./media/image19.png){width="3.826247812773403in"
-height="2.7568427384076992in"}
+generated](./media/image19.png)
 
 Run logic app
 
 ![Graphical user interface, text, application Description automatically
-generated](./media/image20.png){width="5.292630139982502in"
-height="3.4175918635170603in"}
+generated](./media/image20.png)
 
 Go to Microsoft Sentinel and see your newly created watchlist
 
 ![Graphical user interface, text, application, email Description
-automatically generated](./media/image21.png){width="6.5in"
-height="6.711111111111111in"}
+automatically generated](./media/image21.png)
 
 ![Graphical user interface, text, application, email Description
-automatically generated](./media/image22.png){width="6.5in"
-height="2.490972222222222in"}
+automatically generated](./media/image22.png)
 
 You can use this watchlist to create your own analytic rule. I'm sharing
 one example to query against this watchlist to gather only privileged
 users' successful logon activities.
 
 ![Graphical user interface, text, application, email Description
-automatically generated](./media/image23.png){width="6.5in"
-height="3.5722222222222224in"}
+automatically generated](./media/image23.png)
