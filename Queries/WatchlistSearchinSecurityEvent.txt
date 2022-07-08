@@ -1,0 +1,8 @@
+//Here's where to find OnPrem Privileged Users in Security Events
+
+SecurityEvent
+| where EventID == 4624
+| where TargetUserSid in (
+(_GetWatchlist('OnPremPrivUsers')
+| project SearchKey)
+)
