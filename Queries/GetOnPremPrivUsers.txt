@@ -1,0 +1,4 @@
+//Here's where to find users with admin count=1(means AD privileged users)
+
+Import-Module ActiveDirectory
+Get-ADUser -Filter "admincount -eq '1'" -properties sid, cn | select sid, cn | convertto-json
