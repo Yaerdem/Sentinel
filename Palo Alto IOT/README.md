@@ -15,7 +15,8 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FYaerdem%2FSentinel%2Frefs%2Fheads%2Fmain%2FPalo%20Alto%20IOT%2Fazuredeploy.json)
 
-1. Deploy the `Palo Alto IOT Playbook` 
+1. Deploy the `Palo Alto IOT Playbook`
+    ![Deployment](./media/playbookdeploy.png)
 2. Fill out the information needed:
     * `Playbook Name` (this is Playbook Name whatever you want)
     * `Customer ID` (this is the Customer ID you can get from Palo Alto IOT Solution)
@@ -30,8 +31,7 @@ In the Basics menu, I'm adding credentials (it will be used to gather
 privileged users from AD, since all users can read domain users
 properties, standard domain user is enough.)
 
-![Graphical user interface Description automatically generated with
-medium confidence](./media/image5.png)
+![Deployment](./media/playbookdeploy.png)
 
 In the Hybrid Workers menu, I'll pick one of the windows servers which
 is already reporting to Sentinel enabled Log analytics workspace.
