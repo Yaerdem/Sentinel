@@ -7,27 +7,20 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
 
 **Prerequisites**
 
-[*Before you begin review the pre-requisites of deploying a Hybrid
-Runbook Worker
-here:*](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install)
+## Setup
 
-![Graphical user interface, text, application, chat or text message
-Description automatically
-generated](./media/image1.png)
+### Deploy MISP Orchestrator
 
-![Graphical user interface, application Description automatically
-generated](./media/image2.png)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
-Deploy the Automation Hybrid Worker solution from the Azure Market place
-
-![Graphical user interface, application Description automatically
-generated](./media/image3.png)
-
-Go to Automation Account menu, create a Hybrid Worker Group
-
-![Graphical user interface, text, application, email Description
-automatically
-generated](./media/image4.png)
+1. Deploy the `MISP-Orchestrator` 
+2. Fill out the information needed:
+    * `MISP Key` (this is the MISP API key)
+    * `MISP Uri` (this is the URI for the MISP-server)
+    * `MISP Org` (Name of your MISP organization)
+3. Update the `Create new event MISP` step with the correct `event_creator_mail` 
+    * **NOTE**: This should be the same user that you created the MISP key for and not an admin role
+4. Make a note of the `HTTP POST URL` from the 'When a HTTP request is received' step
 
 In the Basics menu, I'm adding credentials (it will be used to gather
 privileged users from AD, since all users can read domain users
