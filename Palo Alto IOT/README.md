@@ -15,11 +15,13 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FYaerdem%2FSentinel%2Frefs%2Fheads%2Fmain%2FPalo%20Alto%20IOT%2Fazuredeploy.json)
 
-1. Deploy the `MISP-Orchestrator` 
+1. Deploy the `Palo Alto IOT Playbook` 
 2. Fill out the information needed:
-    * `MISP Key` (this is the MISP API key)
-    * `MISP Uri` (this is the URI for the MISP-server)
-    * `MISP Org` (Name of your MISP organization)
+    * `Playbook Name` (this is Playbook Name whatever you want)
+    * `Customer ID` (this is the Customer ID you can get from Palo Alto IOT Solution)
+    * `Base URL` (this is the Base URL you can get from Palo Alto IOT Solution-It should be something like this: blalbabla.iot.paloaltonetworks.com)
+    * `X-Key-ID` (this is the X-Key-ID which you get from the Prerequisites)
+    * `X-Access-Key` (this is the X-Access-Key which you get from the Prerequisites)
 3. Update the `Create new event MISP` step with the correct `event_creator_mail` 
     * **NOTE**: This should be the same user that you created the MISP key for and not an admin role
 4. Make a note of the `HTTP POST URL` from the 'When a HTTP request is received' step
