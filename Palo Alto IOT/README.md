@@ -11,7 +11,7 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
 
 ## Setup
 
-### Deploy MISP Orchestrator
+### Deploy Palo Alto IOT Solution
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FYaerdem%2FSentinel%2Frefs%2Fheads%2Fmain%2FPalo%20Alto%20IOT%2Fazuredeploy.json)
 
@@ -23,15 +23,14 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
     * `Base URL` (this is the Base URL you can get from Palo Alto IOT Solution-It should be something like this: blalbabla.iot.paloaltonetworks.com)
     * `X-Key-ID` (this is the X-Key-ID which you get from the Prerequisites)
     * `X-Access-Key` (this is the X-Access-Key which you get from the Prerequisites)
-3. Update the `Create new event MISP` step with the correct `event_creator_mail` 
-    * **NOTE**: This should be the same user that you created the MISP key for and not an admin role
-4. Make a note of the `HTTP POST URL` from the 'When a HTTP request is received' step
+3. After the deployment, you should go to the logic app you created and authorize the API connections like below. 
+    ![Deployment](./media/connectorauthorize.png)
+
 
 In the Basics menu, I'm adding credentials (it will be used to gather
 privileged users from AD, since all users can read domain users
 properties, standard domain user is enough.)
 
-![Deployment](./media/playbookdeploy.png)
 
 In the Hybrid Workers menu, I'll pick one of the windows servers which
 is already reporting to Sentinel enabled Log analytics workspace.
