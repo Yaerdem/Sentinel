@@ -6,6 +6,8 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
 **Deployment Steps**
 
 **Prerequisites**
+1. Get log analytics workspace ID an key [this link](https://learn.microsoft.com/en-us/answers/questions/1154380/where-is-azure-is-the-primary-key-and-workspace-id).
+2. Get your API key details from Palo Alto IOT [this link](https://pan.dev/iot/api/iot-public-api-headers/).
 
 ## Setup
 
