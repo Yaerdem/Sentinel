@@ -11,7 +11,7 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
 
 ### Deploy MISP Orchestrator
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2FYaerdem%2FSentinel%2Ftree%2Fmain%2FPalo%20Alto%20IOT%2Fazuredeploy.json)
 
 1. Deploy the `MISP-Orchestrator` 
 2. Fill out the information needed:
