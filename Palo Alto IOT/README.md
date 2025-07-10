@@ -5,7 +5,7 @@ Palo Alto IOT with a customer ID and key, then get the Palo Alto IOT alerts to M
 
 **Deployment Steps**
 
-**Create an Automation Account from the Azure Portal**
+**Prerequisites**
 
 [*Before you begin review the pre-requisites of deploying a Hybrid
 Runbook Worker
